@@ -7,11 +7,15 @@ WORKDIR /minecraft
 
 COPY forge-1.12.2-14.23.5.2768-installer.jar .
 
-COPY jdk1.8.0_231 jdk1.8.0_231
+COPY jdk-8u231-linux-x64.tar.gz.* /minecraft/
 
-RUN ln -s /minecraft/jdk1.8.0_231/bin/java /usr/bin/
+RUN cat jdk-8u231-linux-x64.tar.gz.* > jdk1.8.0_231.tar.gz
+
+RUN tar -zxvf jdk1.8.0_231.tar.gz
 
 RUN chmod +x /minecraft/jdk1.8.0_231/bin/java
+
+RUN ln -s /minecraft/jdk1.8.0_231/bin/java /usr/bin/
 
 RUN java -jar forge-1.12.2-14.23.5.2768-installer.jar --installServer && rm forge-1.12.2-14.23.5.2768-installer.jar forge-1.12.2-14.23.5.2768-installer.jar.log
 
