@@ -11,6 +11,8 @@ COPY jdk1.8.0_231 jdk1.8.0_231
 
 RUN ln -s /minecraft/jdk1.8.0_231/bin/java /usr/bin/
 
+RUN chmod +x /minecraft/jdk1.8.0_231/bin/java
+
 RUN java -jar forge-1.12.2-14.23.5.2768-installer.jar --installServer && rm forge-1.12.2-14.23.5.2768-installer.jar forge-1.12.2-14.23.5.2768-installer.jar.log
 
 WORKDIR /minecraft/server
