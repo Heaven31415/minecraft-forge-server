@@ -11,7 +11,7 @@ COPY jdk-8u231-linux-x64.tar.gz.* /minecraft/
 
 RUN cat jdk-8u231-linux-x64.tar.gz.* > jdk1.8.0_231.tar.gz
 
-RUN tar -zxvf jdk1.8.0_231.tar.gz
+RUN tar -zxf jdk1.8.0_231.tar.gz
 
 RUN chmod +x /minecraft/jdk1.8.0_231/bin/java
 
