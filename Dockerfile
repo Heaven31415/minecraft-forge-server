@@ -9,9 +9,9 @@ COPY forge-1.12.2-14.23.5.2860-installer.jar .
 
 COPY jdk-8u231-linux-x64.tar.gz.* /minecraft/
 
-RUN cat jdk-8u231-linux-x64.tar.gz.* > jdk1.8.0_231.tar.gz
+RUN cat jdk-8u231-linux-x64.tar.gz.* > jdk1.8.0_231.tar.gz && rm jdk-8u231-linux-x64.tar.gz.*
 
-RUN tar -zxf jdk1.8.0_231.tar.gz
+RUN tar -zxf jdk1.8.0_231.tar.gz && rm jdk1.8.0_231.tar.gz
 
 RUN chmod +x /minecraft/jdk1.8.0_231/bin/java
 
