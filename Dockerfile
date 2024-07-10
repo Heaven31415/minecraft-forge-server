@@ -3,6 +3,8 @@ FROM ubuntu:24.04
 ENV Xms=1024M
 ENV Xmx=2048M
 
+RUN apt-get update && apt-get install --no-install-recommends -y screen && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /minecraft
 
 COPY forge-1.12.2-14.23.5.2860-installer.jar .
@@ -26,4 +28,4 @@ VOLUME /minecraft/server
 
 EXPOSE 25565
 
-CMD echo "eula=true" > eula.txt && java -Xms${Xms} -Xmx${Xmx} -jar ../forge-1.12.2-14.23.5.2860.jar nogui
+CMD echo "eula=true" > eula.txt && screen -S minecraft -dm java -Xms${Xms} -Xmx${Xmx} -jar ../forge-1.12.2-14.23.5.2860.jar nogui && sleep infinity
