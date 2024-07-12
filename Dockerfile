@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 ENV Xms=1024M
 ENV Xmx=2048M
 
-RUN apt-get update && apt-get install --no-install-recommends -y screen && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install --no-install-recommends -y screen tzdata && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /minecraft
 
